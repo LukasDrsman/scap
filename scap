@@ -1,0 +1,20 @@
+#!/bin/sh
+
+echo "Duration: $1 s";
+
+n=0;
+ft=$[$(date +%s)+$1];
+while [ $(date +%s) -le $ft ]
+do
+	scrot ${@:3} "/tmp/scap$n.png";
+	n=$[$n+1];
+done
+
+fps=$[$n/$1];
+
+echo "Frames: $n";
+echo "Avg. rate: $fps fps"
+
+ffmpeg -hide_banner -loglevel error -r $fps -i /tmp/scap%d.png $2;
+rm /tmp/scap*.png;
+
