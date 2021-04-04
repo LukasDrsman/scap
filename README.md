@@ -1,5 +1,5 @@
 # scap
-A minimal (read "garbage") screen capture script based on scrot and ffmpeg
+A minimal (read "garbage") screen capture script based on scrot and ffmpeg. I made it for my own personal entertainment and it messes up any output format other than gifs if I recall correctly.
 
 ## Dependencies
  - scrot
